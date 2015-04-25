@@ -12,6 +12,8 @@
 	<dict>
 		<key>341404ADFA312A25C10AF6FDD5E344406EBAD0C8</key>
 		<string>github.com:wujiandao07/owerMyProject.git</string>
+		<key>E21234A4539D54EDCAE9484F146D7A02DF64EAF6</key>
+		<string>github.com:wujiandao07/XXX.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>XHY_SmartLife.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>341404ADFA312A25C10AF6FDD5E344406EBAD0C8</key>
 		<string>../..</string>
+		<key>E21234A4539D54EDCAE9484F146D7A02DF64EAF6</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:wujiandao07/owerMyProject.git</string>
@@ -28,6 +32,14 @@
 	<string>341404ADFA312A25C10AF6FDD5E344406EBAD0C8</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E21234A4539D54EDCAE9484F146D7A02DF64EAF6</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

@@ -16,15 +16,17 @@
 }
 
 - (void)setUpAllTabBarFrame{
-    CGFloat x=0.0;
-    CGFloat y=0.0;
+    CGFloat x=0.0f;
+    CGFloat y=0.0f;
     NSInteger count=self.tabBarButton.count;
     
-    CGFloat w=(self.bounds.size.width- (count+1) * 15)/count;
+    //CGFloat w=(self.bounds.size.width- (count+1) * 15)/count;
+    CGFloat w=self.bounds.size.width/count;
     CGFloat h=self.bounds.size.height;
     int i=0;
     for(UIView *buttonView in self.tabBarButton){
-        x=i*w+(i+1)*15;
+        //x=i*w+(i+1)*15;
+        x=i*w ;
         buttonView.frame=CGRectMake(x, y, w, h);
         i++;
     }
@@ -38,6 +40,7 @@
 }
 
 - (void)addTabBarButton:(UITabBarItem*)button{
+    
     ImageAndTitleButton *ITButton=[[ImageAndTitleButton alloc]init];
     ITButton.tabBarItem=button;
     ITButton.tag=self.tabBarButton.count;
@@ -68,7 +71,7 @@
             [ITButton setImage:image forState:UIControlStateNormal];
             [ITButton setImage:selectedImage forState:UIControlStateSelected];
             [ITButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-            ITButton.backgroundColor=[UIColor magentaColor];
+           // ITButton.backgroundColor=[UIColor magentaColor];
             [self addSubview:ITButton];
             [self.tabBarButton addObject:ITButton];
             

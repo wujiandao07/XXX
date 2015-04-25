@@ -72,11 +72,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XHY_SmartLife/DeviceController.m"
-            timestampString = "450687549.553701"
+            timestampString = "450757675.032818"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "-getInbedScrollView"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XHY_SmartLife/DeviceController.m"
+            timestampString = "450757675.032818"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "-createDeviceControlWindows"
             landmarkType = "5">
          </BreakpointContent>
@@ -88,12 +104,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XHY_SmartLife/DeviceController.m"
-            timestampString = "450687549.553701"
+            timestampString = "450757833.469277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "-getInbedScrollView"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "-orientationChange:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XHY_SmartLife/DeviceController.m"
+            timestampString = "450757675.032818"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XHY_SmartLife/DeviceController.m"
+            timestampString = "450757833.469277"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

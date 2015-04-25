@@ -19,6 +19,7 @@
     UIUserInterfaceIdiom userIdiom;  //判断设备
     UIDeviceOrientation orientation; //旋转方向
     UIScrollView *inBedScrollview;
+    BOOL isFirstStart;
 }
 @end
 
@@ -58,8 +59,8 @@
     if(userIdiom == UIUserInterfaceIdiomPad  && (orientation == UIDeviceOrientationLandscapeLeft||orientation==UIDeviceOrientationLandscapeRight)){
         count=5;
     }
-    [self getInbedScrollView];
-    [self createDeviceControlWindows];
+//    [self getInbedScrollView];
+//    [self createDeviceControlWindows];
 }
 
 #pragma mark--
@@ -122,7 +123,7 @@
     CGFloat hh= [UIScreen mainScreen].bounds.size.height;
     CGFloat verson=[UIDevice currentDevice].systemVersion.floatValue;
     UIDeviceOrientation currentOrientation=[UIDevice currentDevice].orientation;
-   // NSLog(@"ww=%f ,,,,,hh=%f",ww,hh);
+    NSLog(@"ww=%f ,,,,,hh=%f",ww,hh);
     
     CGFloat width;
     CGFloat height;
@@ -150,7 +151,7 @@
         
         UIView *itemView=[[UIView alloc]init];;
         itemView.frame=CGRectMake(X_space *((i%count)+1)+width * (i%count),(i/count+1)*Y_space + height *(i/count), width, height);
-       // itemView.backgroundColor=[UIColor grayColor];
+        //itemView.backgroundColor=[UIColor grayColor];
         
         UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage:[UIImage imageNamed:imageNmaeArray[i]] forState:UIControlStateNormal];
@@ -231,7 +232,7 @@
     [self.view addSubview:inBedScrollview];
     
     inBedScrollview.contentOffset=CGPointMake(0, 0);
-   // inBedScrollview.backgroundColor=[UIColor greenColor];
+  //  inBedScrollview.backgroundColor=[UIColor greenColor];
     NSInteger row=deviceControlItem.count%count+deviceControlItem.count/count;
     inBedScrollview.contentInset=UIEdgeInsetsMake(0, 0, [self getTheHeight] *(row+1) +(row+1)*Y_space, 0);
    // inBedScrollview.contentInset=UIEdgeInsetsMake(0, 0, 800, 0);
@@ -257,6 +258,10 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
+    
+    [self getInbedScrollView];
+    [self createDeviceControlWindows];
+    
 //    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(orientationChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
@@ -312,6 +317,7 @@
 }
 
 - (void)dealloc{
+    
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 

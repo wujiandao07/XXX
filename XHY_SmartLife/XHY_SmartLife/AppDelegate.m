@@ -21,6 +21,7 @@
     UITabBarController *  tabBarCr;
     UIView * viewFortabBar;
     NSMutableArray *itemArray;
+    
 }
 
 @end
@@ -101,6 +102,10 @@
     
 //    itemArray=[NSMutableArray array];
 //    [self overWriteTabbar];
+    
+    _loginView=[[LoginView alloc]init];
+    _loginView.backgroundColor=[UIColor whiteColor];
+    [self.window addSubview:_loginView];
     
     return YES;
     

@@ -7,6 +7,7 @@
 //
 
 #import "SettingController.h"
+#import "AppDelegate.h"
 #define WIDTH   [UIScreen  mainScreen].bounds.size.width
 #define HEIGHT  [UIScreen  mainScreen].bounds.size.height-60
 
@@ -174,18 +175,21 @@ typedef NS_ENUM(NSInteger, SettingStatus) {
    
     settingTableView.delegate=self;
     settingTableView.dataSource=self;
-    settingTableView.backgroundColor=[UIColor magentaColor];
+    //settingTableView.backgroundColor=[UIColor magentaColor];
     
     
-    settingTableView.tableFooterView=[[UIView alloc]init];
+    //settingTableView.tableFooterView=[[UIView alloc]init];
     settingTableView.backgroundColor=[UIColor clearColor];
     settingTableView.backgroundView=[[UIView alloc]init];
     //settingTableView.autoresizesSubviews=NO;
     settingTableView.translatesAutoresizingMaskIntoConstraints=NO;
+    settingTableView.showsVerticalScrollIndicator=NO;
     [self.view addSubview:settingTableView];
 
     [self getDataSource];
     [self addLayoutConstraint];
+    [self getTablefooterView];
+    //settingTableView.contentInset=UIEdgeInsetsMake(0, 0, -self.view.bounds.size.height*0.2, 0);
     [self.view updateConstraints];
 }
 
@@ -233,8 +237,10 @@ typedef NS_ENUM(NSInteger, SettingStatus) {
     
     NSLayoutConstraint *tableConstraint5=[NSLayoutConstraint constraintWithItem:settingTableView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
     
-    NSLayoutConstraint *tableConstraint6=[NSLayoutConstraint constraintWithItem:settingTableView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:HEIGHT*0.12];
-    settingTableView.contentInset=UIEdgeInsetsMake(0, 0, HEIGHT*0.12, 0);
+    NSLayoutConstraint *tableConstraint6=[NSLayoutConstraint constraintWithItem:settingTableView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+    
+    settingTableView.contentInset=UIEdgeInsetsMake(0, 0, 60, 0);
+    
     //    [self.view addConstraint:tableConstraint];
     //    [self.view addConstraint:tableConstraint1];
         [self.view addConstraint:tableConstraint2];
@@ -244,6 +250,52 @@ typedef NS_ENUM(NSInteger, SettingStatus) {
     [self.view addConstraint:tableConstraint6];
 
 }
+
+- (void)getTablefooterView{
+    UIButton *button =[UIButton buttonWithType:UIButtonTypeCustom];
+    button.backgroundColor=[UIColor redColor];
+    button.layer.cornerRadius=5;
+//    button.layer.borderWidth=5;
+//    button.contentMode=UIViewContentModeRedraw;
+//    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+//    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.7, 0.7, 0.7, 1 });
+//    
+//    button.layer.borderColor=colorref;
+    //[button setImage:[[self class]  createImageWithColor:[UIColor redColor]]forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitle:@"退出" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(quit) forControlEvents:UIControlEventTouchUpInside];
+    button.frame=CGRectMake(10, 0, self.view.bounds.size.width-20, 45);
+    //settingTableView.tableFooterView=button;
+    
+    
+    UIView *footerView=[[UIView alloc]init];
+    footerView.frame=CGRectMake(0, 0, self.view.bounds.size.width, 45);
+   // footerView.backgroundColor=[UIColor magentaColor];
+    settingTableView.tableFooterView=footerView;
+    [footerView addSubview:button];
+    
+    
+    
+}
+- (void)quit{
+    
+   AppDelegate *delegate= [UIApplication sharedApplication].delegate;
+    delegate.loginView.hidden=NO;
+}
++ (UIImage *)createImageWithColor:(UIColor *)color
+{
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return theImage;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
@@ -285,4 +337,5 @@ typedef NS_ENUM(NSInteger, SettingStatus) {
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     return  nil;
 }
+
 @end
